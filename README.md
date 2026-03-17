@@ -1,131 +1,115 @@
-# SQL Queries Assignment – Parts 1 & 2
+# Retail Sales, Customer & Inventory Analytics Dashboard
 
-This repository contains **PostgreSQL queries (1–100)** written for practice and analysis on a sample database with `Customers`, `Products`, `Sales`, and `Inventory` tables.  
-The queries range from **basic retrieval** to **advanced analytics** using subqueries, CTEs, and window functions.
+## Project Overview
+This project presents an end-to-end data analytics solution combining SQL and Power BI to analyze retail business performance. It covers customer behavior, product performance, sales trends, and inventory insights.
 
-## Database Tables
+The goal is to transform raw transactional data into actionable insights through structured queries and interactive dashboards.
+
+## Dataset Description
 
 ### Customers
-
-customer_id, first_name, last_name, email, phone_number, registration_date, membership_status
-
+- Customer details and registration data  
+- Membership status: Bronze, Silver, Gold  
 
 ### Products
-
-
-product_id, product_name, category, price, supplier, stock_quantity
-
+- Product information including category, price, and supplier  
 
 ### Sales
-
-
-sale_id, customer_id, product_id, quantity_sold, sale_date, total_amount
-
+- Transactional data (sales, quantity, revenue, dates)  
 
 ### Inventory
+- Stock levels for each product  
 
+## Database Structure
+- Schema: assignment
+- Relationships:
+  - Customers → Sales (customer_id)
+  - Products → Sales (product_id)
+  - Products → Inventory (product_id)
 
-product_id, stock_quantity
+## SQL Analysis
+The project includes 100+ SQL queries covering:
 
-## Query Categories
+### Basic Queries
+- Data retrieval (SELECT)
+- Filtering and sorting
+- Aggregations (SUM, AVG, COUNT)
 
-### Part 1 (Queries 1–50)
+### Intermediate Queries
+- Joins (INNER, LEFT, RIGHT)
+- Grouping and HAVING clauses
+- Subqueries
 
-**Basic Queries**
-- Select all data, count products, filter by price or category  
-- Find min/max prices and total sales per product  
+### Advanced SQL
+- Common Table Expressions (CTEs)
+- Window functions (RANK, NTILE, LAG, LEAD)
+- Analytical queries (top customers, product performance)
 
-**Aggregations & Joins**
-- Total quantity sold per product  
-- Total amount spent per customer  
-- Concatenate names  
-- Self-joins to find customers with the same membership  
-- Products with low stock or high sales  
+### Business Questions Answered
+- Who are the top customers by revenue?
+- Which products generate the most sales?
+- What are the best-performing categories?
+- Which products are low in stock?
+- How do sales trends change over time?
 
-**Joins & Filters**
-- Customers by product category  
-- Top customers by sales  
-- Most expensive product sold  
-- Average quantity sold per product  
-- Total sales in specific months  
+## Power BI Dashboard
+Built using Microsoft Power BI, the dashboard provides interactive insights.
 
-**Advanced Analytics**
-- Customers buying within registration periods  
-- Price range filtering  
-- Most frequent customers  
-- Products with remaining stock  
-- Products with specific keywords (like 'Phone')  
+### Key Features
+- KPI Cards (Total Sales, Customers, Orders, Avg Order Value)
+- Sales trend over time (line chart)
+- Sales by product and category
+- Top customers analysis
+- Inventory status monitoring
 
-**Expert Level**
-- Total sales by membership or category  
-- Monthly and yearly aggregation  
-- Products not sold in the last 6 months  
-- Top 5 customers by purchases  
-- Products sold more than a threshold  
+### Interactivity
+- Filters (Slicers):
+  - Date
+  - Product category
+  - Membership status
 
-### Part 2 (Queries 51–100)
+## Data Visualization Techniques
+- Bar charts for product performance  
+- Pie charts for category distribution  
+- Line charts for trends  
+- Tables with conditional formatting for inventory alerts  
 
-**Subquery Questions**
-- Customers who spent above average, never purchased, or purchased more than a specific customer  
-- Products priced above average, never sold, or with total sales above average  
-- Customers registered earlier than average  
+## Key Measures (DAX)
+- Total Sales  
+- Total Quantity Sold  
+- Total Customers  
+- Average Order Value  
 
-**Common Table Expressions (CTEs)**
-- Top spending customers  
-- Top-selling products  
-- Product category with highest revenue  
-- Customers with multiple purchases  
-- Products selling above/below average  
+## Tools and Technologies
+- SQL (PostgreSQL or relational database)
+- Microsoft Power BI (data visualization)
+- DAX (Data Analysis Expressions)
 
-**Window Function Questions**
-- Ranking customers and products  
-- Running totals, previous/next sale amounts  
-- Grouping customers into quartiles  
-- Ranking within categories  
-
-**Advanced Analytical Questions**
-- Customers buying in multiple categories  
-- Purchases within registration period  
-- Products with stock below average  
-- Repeat purchases  
-- Top products and categories by revenue  
-
-**Advanced Window + Analytical Problems**
-- Top 10% spending customers  
-- Products contributing to top revenue  
-- Consecutive month purchases  
-- Largest stock vs sold difference  
-- Spending relative to membership tier  
-- Largest single purchase relative to total spending  
-- Top 3 most sold products per category  
-- Products sold every year in the dataset  
-
-## Best Practices Used
-
-- **Joins:** `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `SELF JOIN`  
-- **Aggregates:** `SUM()`, `COUNT()`, `AVG()`, `MAX()`, `MIN()`  
-- **Filtering:** `WHERE`, `HAVING`  
-- **Window Functions:** `RANK()`, `DENSE_RANK()`, `NTILE()`, `LEAD()`, `LAG()`  
-- **Date Functions:** `EXTRACT(YEAR/MONTH)`, `INTERVAL`  
-- **String Functions:** `CONCAT()`  
-- **Ordering & Limiting:** `ORDER BY`, `LIMIT`  
-- **Distinct Values:** `DISTINCT` for uniqueness  
+## Insights and Outcomes
+- Identified high-value customers  
+- Highlighted top-selling products  
+- Detected low-stock inventory items  
+- Analyzed revenue trends over time  
 
 ## How to Use
+1. Run the SQL script to create and populate the database  
+2. Connect Power BI to the database  
+3. Load all tables  
+4. Create relationships  
+5. Build visuals using provided measures  
 
-1. Clone the repository:
-```
-git clone https://github.com/yourusername/sql-analytics.git
+## Dashboard Preview
+<img width="1282" height="725" alt="image" src="https://github.com/user-attachments/assets/4716e4a9-28b5-4a88-b9a0-6ff635b212c1" />
 
 
-Open SQL scripts in your SQL client (DBeaver, pgAdmin, MySQL Workbench, etc.)
+## Future Improvements
+- Add forecasting models  
+- Include real-time data updates  
+- Enhance customer segmentation  
+- Integrate machine learning insights  
 
-Execute queries against your database
+## Author
+Kelvin Warui
 
-Adjust table or column names if needed to match your schema
-
-This collection serves as a reference and practice set for beginner to advanced SQL queries, focusing on analytics, reporting, and business insights.
-
-License
-
-This project is licensed under the MIT License – see the LICENSE file for details.
+## License
+This project is for educational and portfolio purposes.
